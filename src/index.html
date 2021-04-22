@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Vidhu Arnav Singh | Product Tracker a DApp for Supply Chains</title>
+
+  <!-- Bootstrap -->
+  <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+      main {
+        margin-top: 60px;
+      }
+
+      #content {
+        display: none;
+      }
+
+      form {
+        width: 350px;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        margin-bottom: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="https://github.com/VidhuArnav" target="_blank">Vidhu Arnav Singh | Product Tracker | DApp for Supply Chains</a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
+          <small><a class="nav-link" href="#"><span id="account"></span></a></small>
+        </li>
+      </ul>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <main role="main" class="col-lg-3 d-flex justify-content-center">
+          <div id="add-new-product" class="text-center">
+            <p class="text-center text-success">Add New Product</p>
+            <form onSubmit=" App.addNewProduct(); reset(); return false;">
+              <input type="text" class="form-control" id="productName1" placeholder="Product Name" required>
+              <p></p>
+              <input type="text" class="form-control" id="manufacturedBy1" placeholder="Manufacturer Name" required>
+              <p></p>
+              <input type="text" class="form-control" id="Origin1" placeholder="Place of Origin" required>
+              <p></p>
+              <label for="floatingInput">Manufacturing Date</label>
+              <input type="date" class="form-control" id="manufacturingDate1" placeholder="Manufacturing Date" required>
+              <p></p>
+              <button type="submit"  class="btn btn-primary">Add the New Product to Blockchain</button>
+            </form>
+          </div>
+        </main>
+        <main role="main" class="col-lg-6 d-flex justify-content-center">
+          <div>
+            <p class="text-center text-success">Track Product</p>
+            <form onSubmit=" App.renderRecords(); reset(); return false;">
+              <input type="number" class="form-control" id="productId" placeholder="Product ID" required>
+              <p></p>
+              <button type="submit" class="btn btn-primary">Transit History of a Product from the Blockchain</button>
+            </form>
+            <div class='alert alert-warning' id='alertNoTransit' role='alert' style="display:none;">Product registered on Blockchain but still with the Original Manufacturer
+            </div>
+            <div class='alert alert-danger' id='alertNoProduct' role='alert'style="display:none;">
+              <p>Product not yet added to Supply Chain.</p>
+              <p>Please re-enter another Product ID</p>
+            </div>
+            <div id='records'>
+              <ul class="list-group " id="productInfo" style="display:none;">
+                <li class="list-group-item list-group-item-secondary  list-group-horizontal" id="productName" style="display: none;"></li>
+                <li class="list-group-item list-group-horizontal" id="manufacturedBy" style="display: none;"></li>
+                <li class="list-group-item list-group-horizontal" id="originFrom" style="display:none"></li>
+                <li class="list-group-item list-group-horizontal" id="manufacturingDate" style="display: none;"></li>
+              </ul>
+              <br>
+              <div class="border border-dark bg-warning text-dark"id="transitRecords" style="display: none;"></div>
+            </div>
+          </main>
+          <main role="main" class="col-lg-3 d-flex justify-content-center">
+            <div id="add-new-product" class="text-center">
+              <p class="text-center text-success">Add New Transit Information</p>
+              <form onSubmit="App.transitUpdate(); reset(); return false;">
+                <input type="number" class="form-control" id="productId2" placeholder="Product ID" required>
+                <p></p>
+                <input type="text" class="form-control" id="from2" placeholder="From" required>
+                <p></p>
+                <input type="text" class="form-control" id="to2" placeholder="To" required>
+                <p></p>
+                <label for="floatingInput"> Shipping Date</label>
+                <input type="date" class="form-control" id="on2" placeholder="Shipping Date" required>
+                <p></p>
+                <input type="number" class="form-control" id="in2" placeholder="Estimated Intransit Period" required>
+                <p></p>              
+                <button type="submit" class="btn btn-primary">Write Transit Information to the Blockchain</button>
+              </form>
+            </div>
+          </main>
+        </div>
+      </div>
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="vendor/web3/dist/web3.js"></script>
+      <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+      <script src="app.js"></script>
+      <script>
+        function reset(){
+          document.getElementById('floatingInput').value='';
+        }
+      </script>    
+    </body>
+    </html>
