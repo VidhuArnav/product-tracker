@@ -6,10 +6,10 @@ This is a web-based Etheruem DApp made using Truffle.
 ## Setup
 ### Setting up compatible Metamask
 <br>The Set-up for this web-app for regular use requires an older version of Metamask <a href="https://github.com/MetaMask/metamask-extension/releases/tag/v6.6.1">extension</a>.
-<br>Download the zip file for the extension for your browser by clicking on the above link. Extract the zip folder into a local depository. 
-<br>Open your browser and navigate to 'manage extensions'.
-<br>Toggle switch to developer mode. Disable all previous versions of Metamask.
-<br>Click on 'Load Unpacked' and browse to the earlier extracted folder and select that folder.
+* Download the zip file for the extension for your browser by clicking on the above link. Extract the zip folder into a local depository. 
+* Open your browser and navigate to 'manage extensions'.
+* Toggle switch to developer mode. Disable all previous versions of Metamask.
+* Click on 'Load Unpacked' and browse to the earlier extracted folder and select that folder.
 ### Setting up local blockchain on Ganche and other dependencies. 
 <br>In case the project needs to be run/tested on a local blockchain download <a href="http://truffleframework.com/ganache">Ganache</a> to quickly setup your local blockchain.
 <br>This is also advisable since doing transactions on any blockchain costs gas fees.
